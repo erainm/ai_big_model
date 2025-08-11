@@ -6,9 +6,9 @@
 @Create at   ：2025/8/11 15:19
 @version     ：V1.0
 @Author      ：erainm
-@Description : 手机价格分类预测（基础版）
+@Description : mobile price class predict(basic)
 '''
-# 导包
+# import package
 import pandas as pd
 import torch
 from torch.utils.data import TensorDataset

@@ -76,7 +76,7 @@ def train_model(train_dataloader, phone_price_model, epochs):
     # 3. create multi-class loss function
     loss_fn = torch.nn.CrossEntropyLoss()
     # 4. create optimizer
-    optimizer = torch.optim.SGD(phone_price_model.parameters(), lr=0.01)
+    optimizer = torch.optim.SGD(phone_price_model.parameters(), lr=0.001)
     # 5. loop train model,outer loop turns, inner loop batch
     for epoch in range(epochs):
         # define init parameters

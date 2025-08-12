@@ -1,23 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-'''
-@Project     ：ai_big_model
-@File        ：mobile_price_category_predict.py
-@Create at   ：2025/8/11 15:19
-@version     ：V1.0
-@Author      ：erainm
-@Description : mobile price class predict(basic)
-'''
+"""
+    @Project     ：ai_big_model
+    @File        ：mobile_price_category_predict.py
+    @Create at   ：2025/8/11 15:19
+    @version     ：V1.0
+    @Author      ：erainm
+    @Description : mobile price class predict(basic)
+"""
 # import package
 import pandas as pd
 import torch
 from torch.utils.data import TensorDataset
 from torch.utils.data import DataLoader
-import torch.nn as nn
-import torch.optim as optim
-from sklearn.datasets import make_regression
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
 import numpy as np
 import time
 

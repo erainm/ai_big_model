@@ -53,9 +53,9 @@ class PhonePriceModel(torch.nn.Module):
     def __init__(self,input_num, output_num):
         super().__init__()
         # define net structure,neural network hide layer
-        self.linear1 = torch.nn.Linear(20, 128)
+        self.linear1 = torch.nn.Linear(input_num, 128)
         self.linear2 = torch.nn.Linear(128, 256)
-        self.out = torch.nn.Linear(256,4)
+        self.out = torch.nn.Linear(256,output_num)
 
     # overwrite forward method(neuron inside,weighted summation and activation function)
     # default hide layer use relu activation function
@@ -101,14 +101,14 @@ def train_model(train_dataloader, phone_price_model, epochs):
         epoch_loss = total_loss / batch_cnt
         print(f"round {epoch +1},runtime:{time.time() - start:.2f} seconds,loss value is --> {epoch_loss:.2f}")
     # 6. save trained model parameter dictionary
-    torch.save(phone_price_model.state_dict(),"C:/Users/erain/Desktop/ai_big_model/mobile_price_category_predict/data/mobile_price_class_predict.pth")
+    torch.save(phone_price_model.state_dict(),"model/mobile_price_class_predict.pth")
 
 # 4. model evaluate
 def eval_model(valid_dataloader, input_num, output_num):
     # 1. get data((parameter have data))
     # 2. create new model object,load trained model parameter dictionary,for evaluate
     phone_price_model = PhonePriceModel(input_num, output_num)
-    phone_price_model.load_state_dict(torch.load("C:/Users/erain/Desktop/ai_big_model/mobile_price_category_predict/data/mobile_price_class_predict.pth"))
+    phone_price_model.load_state_dict(torch.load("model/mobile_price_class_predict.pth"))
     # 3. define variable,record true sample num
     correct = 0
     # 4. batch evaluate process
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     # define function,load data and progressing
     # set batch_size，and pass to get_data_loader() function
     batch_size = 8
-    train_dataloader, valid_dataloader, input_num, output_num = get_data_loader(batch_size=batch_size,data_url="C:/Users/erain/Desktop/ai_big_model/mobile_price_category_predict/data/手机价格预测.csv")
+    train_dataloader, valid_dataloader, input_num, output_num = get_data_loader(batch_size=batch_size,data_url="data/手机价格预测.csv")
 
     # define class,construct neural network
     phone_price_model = PhonePriceModel(input_num, output_num)

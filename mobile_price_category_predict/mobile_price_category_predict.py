@@ -51,7 +51,7 @@ def get_data_loader(batch_size,data_url):
 class PhonePriceModel(torch.nn.Module):
     # overwrite init method and forward method
     def __init__(self,input_num, output_num):
-        super.__init__()
+        super().__init__()
         # define net structure,neural network hide layer
         self.linear1 = torch.nn.Linear(20, 128)
         self.linear2 = torch.nn.Linear(128, 256)
@@ -62,7 +62,7 @@ class PhonePriceModel(torch.nn.Module):
     def forward(self, x):
         # weighted summation --> activation function(hide layer default use relu function)
         x = torch.relu(self.linear1(x))
-        x = torch.relu(self.linear2(2))
+        x = torch.relu(self.linear2(x))
 
         # output layer
         x = self.out(x)

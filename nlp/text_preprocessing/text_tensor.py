@@ -48,3 +48,14 @@
             缺点：高维稀疏向量，计算效率低，无法捕捉词之间的语义相似性。而且在大语料集下，每个向量的长度过大，占据大量内存
 """
 
+# 导入keras中的词汇映射器Tokenizer
+from tensorflow.keras.preprocessing.text import Tokenizer
+# pip install tensorflow==2.12.1 -i https://mirrors.aliyun.com/pypi/simple/
+# 导入用于对象保存与加载的joblib
+import joblib
+
+
+"""
+    Word2Vec模型
+"""
+
